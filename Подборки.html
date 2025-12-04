@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подборки новогодних фильмов | Новогодний Киногид</title>
+    <meta name="description" content="Тематические подборки новогодних фильмов: для семьи, романтические вечера, комедии и классика. Идеальные выборки для любого настроения.">
+    <meta name="keywords" content="подборки фильмов, тематические коллекции, фильмы для семьи, романтические комедии, новогодние комедии">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Защита от копирования
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            // Снежинки
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            // Счетчик онлайн
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+    </script>
+</head>
+<body class="protected-content">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🎬</div>
+                <div class="logo-text">
+                    <h1>Новогодний Киногид</h1>
+                    <p>Тематические подборки фильмов</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                <li><a href="Подборки.html"  class="active"><i class="fas fa-star"></i> Подборки</a></li>
+                <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
+                <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="section-title">
+                <h2>Тематические подборки</h2>
+            </div>
+            
+            <div class="collections-grid">
+                <!-- Подборка 1 -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <img src="семейный.jpg" alt="Семейные фильмы" class="collection-image">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Для всей семьи</h3>
+                        <p>Фильмы, которые можно смотреть вместе с детьми и получать удовольствие всем поколениям. Безопасный и интересный контент для семейного просмотра.</p>
+                        
+                        <div class="collection-movies">
+                            <h4>В подборке:</h4>
+                            <ul>
+                                <li>Один дома (1990)</li>
+                                <li>Гринч (2000)</li>
+                                <li>Полярный экспресс (2004)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="collection-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>24 часа просмотра</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>Средний рейтинг: 8.1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection-footer">
+                        <a href="Для всей семьи.html" class="btn btn-accent">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 2 -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <img src="новог_романтик.jpg" alt="Романтические фильмы" class="collection-image">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Новогодняя романтика</h3>
+                        <p>Трогательные истории любви, которые разворачиваются в самый волшебный период года. Идеально для романтического вечера вдвоем.</p>
+                        
+                        <div class="collection-movies">
+                            <h4>В подборке:</h4>
+                            <ul>
+                                <li>Красотка (1990)</li>
+                                <li>Реальная любовь (2003)</li>
+                                <li>Предложение (2009)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="collection-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>18 часов просмотра</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>Средний рейтинг: 7.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection-footer">
+                        <a href="Романтика.html" class="btn btn-accent">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 3 -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <img src="комедия.jpg" alt="Комедии" class="collection-image">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Смех до слёз</h3>
+                        <p>Самые смешные комедии, которые поднимут настроение даже в самый хмурый зимний день. От классических шедевров до современных хитов.</p>
+                        
+                        <div class="collection-movies">
+                            <h4>В подборке:</h4>
+                            <ul>
+                                <li>Рождество с неудачниками (2004)</li>
+                                <li>Эльф (2003)</li>
+                                <li>Санта Клаус (1994)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="collection-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>28 часов просмотра</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>Средний рейтинг: 7.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection-footer">
+                        <a href="Комедии.html" class="btn btn-accent">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 4 -->
+                <article class="collection-card">
+                    <div class="collection-header">
+                        <img src="классика.jpg" alt="Классика" class="collection-image">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Вечная классика</h3>
+                        <p>Фильмы, которые уже стали неотъемлемой частью праздничной традиции миллионов людей. Проверенные временем шедевры.</p>
+                        
+                        <div class="collection-movies">
+                            <h4>В подборке:</h4>
+                            <ul>
+                                <li>Эта замечательная жизнь (1946)</li>
+                                <li>Чудо на 34-й улице (1947)</li>
+                                <li>Рождественская история (1983)</li>
+                        </div>
+                        
+                        <div class="collection-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>20 часов просмотра</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>Средний рейтинг: 8.4</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection-footer">
+                        <a href="Классика.html" class="btn btn-accent">Смотреть подборку</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Новогодний Киногид</h3>
+                    <p>Ваш надежный гид в мире праздничного кино.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Разделы сайта</h3>
+                    <ul class="footer-links">
+                        <li><a href="Главная.html">Главная</a></li>
+                        <li><a href="Обзоры.html">Обзоры фильмов</a></li>
+                        <li><a href="Подборки.html">Тематические подборки</a></li>
+                        <li><a href="Рейтинги.html">Рейтинги и топы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="О проекте.html">О проекте</a></li>
+                        <li><a href="Контакты.html">Обратная связь</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

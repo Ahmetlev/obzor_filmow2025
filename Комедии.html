@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комедии - Праздничные подборки | Новогодний Киногид</title>
+    <meta name="description" content="Самые смешные новогодние комедии для поднятия настроения. Юмористические фильмы про Рождество и Новый год.">
+    <meta name="keywords" content="новогодние комедии, смешные фильмы, юмористические фильмы, комедийные фильмы">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😂</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+    </script>
+</head>
+<body class="protected-content collection-comedy">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">😂</div>
+                <div class="logo-text">
+                    <h1>Смех до слёз</h1>
+                    <p>Самые смешные комедии</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-gift"></i> Все подборки</a></li>
+                <li><a href="Для всей семьи.html"><i class="fas fa-users"></i> Для всей семьи</a></li>
+                <li><a  class="active"><i class="fas fa-laugh"></i> Комедии</a></li>
+                <li><a href="Романтика.html"><i class="fas fa-heart"></i> Романтика</a></li>
+                <li><a href="Классика.html"><i class="fas fa-crown"></i> Классика</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="collection-hero">
+                <div class="collection-badge">3 фильма</div>
+                <h2>🎭 Смех до слёз</h2>
+                <p class="collection-description">Самые смешные комедии, которые поднимут настроение даже в самый хмурый зимний день. От классических шедевров до современных хитов.</p>
+            </div>
+
+            <div class="movies-grid">
+                <!-- Фильм 1 -->
+                <article class="movie-card">
+                    <img src="Эльф.jpg" alt="Эльф" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Эльф (2003)</h3>
+                        <div class="movie-meta">
+                            <span>Комедия, Фэнтези</span>
+                            <span class="rating">⭐ 7.5/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Человек, выросший среди эльфов, отправляется в Нью-Йорк на поиски своего настоящего отца.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🎅 С Робертом Де Ниро</span>
+                            <span class="feature-tag">😂 Ироничный юмор</span>
+                        </div>
+                        <a href="Обзоры.html#elf" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 2 -->
+                <article class="movie-card">
+                    <img src="Санта_клаус.jpg" alt="Предложение" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Санта Клаус (1994)</h3>
+                        <div class="movie-meta">
+                            <span>Рождественская комедия</span>
+                            <span class="rating">⭐ 7.3/10</span>
+                        </div>
+                        <p class="movie-description">
+                        В рождественскую ночь продавец игрушек Скотт Кэлвин случайно сталкивает со своей крыши странного старичка.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🤯Приключения</span>
+                            <span class="feature-tag">😄 Легкий юмор</span>
+                        </div>
+                        <a href="Обзоры.html#santa-claus" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 3 -->
+                <article class="movie-card">
+                    <img src="Рож_неудач.jpg" alt="Рождество с неудачниками" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Рождество с неудачниками (2004)</h3>
+                        <div class="movie-meta">
+                            <span>Комедия</span>
+                            <span class="rating">⭐ 6.9/10</span>
+                        </div>
+                        <p class="movie-description">
+                        Два закадычных друга соревнуются, у кого будет худшее Рождество в истории.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🤪 Абсурдный юмор</span>
+                            <span class="feature-tag">🎬 Современная комедия</span>
+                        </div>
+                        <a href="Обзоры.html#roz-neud" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Новогодний Киногид</h3>
+                    <p>Ваш проводник в мире праздничного кино</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Подборки</h3>
+                    <ul class="footer-links">
+                        <li><a href="Для всей семьи.html">Для всей семьи</a></li>
+                        <li><a href="Комедии.html">Комедии</a></li>
+                        <li><a href="Романтика.html">Романтика</a></li>
+                        <li><a href="Классика.html">Классика</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="О проекте.html">О проекте</a></li>
+                        <li><a href="Контакты.html">Обратная связь</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

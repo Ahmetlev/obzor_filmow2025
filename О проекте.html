@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте | Новогодний Киногид</title>
+    <meta name="description" content="Узнайте больше о проекте Новогодний Киногид - нашей миссии, команде и принципах работы. Мы создаем лучшие подборки праздничных фильмов.">
+    <meta name="keywords" content="о проекте, наша команда, миссия, принципы работы, контакты редакции">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Защита от копирования
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            // Снежинки
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            // Счетчик онлайн
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+    </script>
+</head>
+<body class="protected-content">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🎬</div>
+                <div class="logo-text">
+                    <h1>Новогодний Киногид</h1>
+                    <p>О нашем проекте</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <<li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+                <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                <li><a href="О проекте.html" class="active"><i class="fas fa-info-circle"></i> О проекте</a></li>
+                <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="about-hero">
+                <h2>Создаём новогоднее настроение вместе с вами</h2>
+                <p>С 2020 года мы помогаем нашим читателям находить идеальные фильмы для праздничного сезона</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-section">
+                    <h3>🎯 Наша миссия</h3>
+                    <p>Мы верим, что правильный фильм может создать настоящее новогоднее волшебство. Наша цель - помочь каждому найти именно ту кинокартину, которая подарит тепло, радость и праздничное настроение.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>⭐ Принципы работы</h3>
+                    <div class="principles-grid">
+                        <div class="principle">
+                            <i class="fas fa-star"></i>
+                            <h4>Экспертный подход</h4>
+                            <p>Каждый обзор готовится профессиональными кинокритиками</p>
+                        </div>
+                        <div class="principle">
+                            <i class="fas fa-users"></i>
+                            <h4>Честные оценки</h4>
+                            <p>Рейтинги формируются на основе мнений реальных зрителей</p>
+                        </div>
+                        <div class="principle">
+                            <i class="fas fa-gift"></i>
+                            <h4>Актуальность</h4>
+                            <p>Регулярно обновляем подборки и добавляем новые релизы</p>
+                        </div>
+                        <div class="principle">
+                            <i class="fas fa-heart"></i>
+                            <h4>Для всех</h4>
+                            <p>Подбираем фильмы для разных возрастов и предпочтений</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>👥 Наша команда</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="Ахмет.jpg" alt="Аннагурбанов Ахмет" class="member-photo">
+                            <h4>Аннагурбанов Ахмет </h4>
+                            <p class="member-role">Разработчик сайта</p>
+                            <p>Киновед с 5-летним опытом,разработчик веб-сайта,дизайнер</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>📊 Наши достижения</h3>
+                    <div class="stats-grid">
+                        <div class="achievement">
+                            <div class="achievement-number">10+</div>
+                            <div class="achievement-text">подробных обзоров</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">5K+</div>
+                            <div class="achievement-text">постоянных читателей</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">4</div>
+                            <div class="achievement-text">тематических подборок</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">4.8</div>
+                            <div class="achievement-text">средняя оценка сайта</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Новогодний Киногид</h3>
+                    <p>Ваш надежный гид в мире праздничного кино.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Разделы сайта</h3>
+                    <ul class="footer-links">
+                        <li><a href="Главная.html">Главная</a></li>
+                        <li><a href="Обзоры.html">Обзоры фильмов</a></li>
+                        <li><a href="Подборки.html">Тематические подборки</a></li>
+                        <li><a href="Рейтинги.html">Рейтинги и топы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="О проекте.html">О проекте</a></li>
+                        <li><a href="Контакты.html">Обратная связь</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Классика - Праздничные подборки | Новогодний Киногид</title>
+    <meta name="description" content="Вечная классика новогоднего кино. Фильмы, которые уже стали неотъемлемой частью праздничной традиции миллионов людей.">
+    <meta name="keywords" content="классические фильмы, вечная классика, старые фильмы, винтажное кино">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+    </script>
+</head>
+<body class="protected-content collection-classics">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">👑</div>
+                <div class="logo-text">
+                    <h1>Вечная классика</h1>
+                    <p>Фильмы, проверенные временем</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-gift"></i> Все подборки</a></li>
+                <li><a href="Для всей семьи.html"><i class="fas fa-users"></i> Для всей семьи</a></li>
+                <li><a href="Комедии.html"><i class="fas fa-laugh"></i> Комедии</a></li>
+                <li><a href="Романтика.html"><i class="fas fa-heart"></i> Романтика</a></li>
+                <li><a  class="active"><i class="fas fa-crown"></i> Классика</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="collection-hero">
+                <div class="collection-badge">3 фильма</div>
+                <h2>👑 Вечная классика</h2>
+                <p class="collection-description">Фильмы, которые уже стали неотъемлемой частью праздничной традиции миллионов людей. Проверенные временем шедевры.</p>
+            </div>
+
+            <div class="movies-grid">
+                <!-- Фильм 1 -->
+                <article class="movie-card">
+                    <img src="Эта_зам_жизнь.jpg" alt="Эта прекрасная жизнь" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Эта замечательная жизнь (1946)</h3>
+                        <div class="movie-meta">
+                            <span>Драма, Фэнтези</span>
+                            <span class="rating">⭐ 8.3/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Человек в отчаянии собирается покончить с собой, но ангел показывает ему, какой была бы жизнь без него.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🌟 Золотая классика</span>
+                            <span class="feature-tag">😢 Трогательная драма</span>
+                        </div>
+                        <a href="Обзоры.html#eta_zam" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 2--->
+                 <article class="movie-card">
+                    <img src="Чудо_на34.jpg" alt="Эта прекрасная жизнь" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Чудо на 34-й улице (1947)</h3>
+                        <div class="movie-meta">
+                            <span>Драма, Фэнтези</span>
+                            <span class="rating">⭐ 8.0/10</span>
+                        </div>
+                        <p class="movie-description">
+                           Во время парада, устроенного крупным магазином в канун Рождества, актер, который был должен играть Санта Клауса, обнаружен встельку пьяным. 
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🌟 Золотая классика</span>
+                            <span class="feature-tag">😢 Драма</span>
+                        </div>
+                        <a href="Обзоры.html#cudo-34" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+                
+                <!-- Фильм 3--->
+                 <article class="movie-card">
+                    <img src="Рожд_история.jpg" alt="Эта прекрасная жизнь" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Рождественская история  (1983)</h3>
+                        <div class="movie-meta">
+                            <span>Семейный, Комедия</span>
+                            <span class="rating">⭐ 7.5/10</span>
+                        </div>
+                        <p class="movie-description">
+                           Индиана, 1940 год. Девятилетний Ральфи мечтает об идеальном рождественском подарке - настоящей двухсотзарядной пневматической винтовке Красного Наездника.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🌟 Золотая классика</span>
+                            <span class="feature-tag">😄 комедия</span>
+                        </div>
+                        <a href="Обзоры.html#roz_istoriya" class="read-more">Читать обзор</a>
+                    </div>
+                </article>

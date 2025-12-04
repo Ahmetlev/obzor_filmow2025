@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для всей семьи - Праздничные подборки | Новогодний Киногид</title>
+    <meta name="description" content="Лучшие семейные фильмы для просмотра всей семьей в новогодние праздники. Кино, которое понравится и детям, и взрослым.">
+    <meta name="keywords" content="семейные фильмы, кино для всей семьи, детские фильмы, новогодние фильмы для семьи">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍👩‍👧‍👦</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+    </script>
+</head>
+<body class="protected-content collection-family">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">👨‍👩‍👧‍👦</div>
+                <div class="logo-text">
+                    <h1>Для всей семьи</h1>
+                    <p>Фильмы для семейного просмотра</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-gift"></i> Все подборки</a></li>
+                <li><a class="active"><i class="fas fa-users"></i> Для всей семьи</a></li>
+                <li><a href="Комедии.html"><i class="fas fa-laugh"></i> Комедии</a></li>
+                <li><a href="Романтика.html"><i class="fas fa-heart"></i> Романтика</a></li>
+                <li><a href="Классика.html"><i class="fas fa-crown"></i> Классика</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="collection-hero">
+                <div class="collection-badge">3 фильма</div>
+                <h2>🎄 Фильмы для всей семьи</h2>
+                <p class="collection-description">Фильмы, которые можно смотреть вместе с детьми и получать удовольствие все поколения. Идеальный выбор для семейных вечеров в праздничные дни!</p>
+            </div>
+
+            <div class="movies-grid">
+                <!-- Фильм 1 -->
+                <article class="movie-card">
+                    <img src="один_дома.jpg" alt="Один дома" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Один дома (1990)</h3>
+                        <div class="movie-meta">
+                            <span>Комедия, Семейный</span>
+                            <span class="rating">⭐ 8.3/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Классическая рождественская комедия о мальчике, который остался один дома и дал отпор грабителям.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🏠 Семейный юмор</span>
+                            <span class="feature-tag">🎄 Классика</span>
+                        </div>
+                        <a href="Обзоры.html#odin-doma" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 2 -->
+                <article class="movie-card">
+                    <img src="полярный экспресс.jpg" alt="Полярный экспресс" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Полярный экспресс (2004)</h3>
+                        <div class="movie-meta">
+                            <span>Анимация, Фэнтези</span>
+                            <span class="rating">⭐ 7.8/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Мальчик отправляется в волшебное путешествие на поезде, следующем прямо к Северному полюсу.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🚂 Волшебство</span>
+                            <span class="feature-tag">🎅 Санта-Клаус</span>
+                        </div>
+                        <a href="Обзоры.html#polyar-express" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 3 -->
+                <article class="movie-card">
+                    <img src="гринч2.jpg" alt="Гринч" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Гринч (2000)</h3>
+                        <div class="movie-meta">
+                            <span>Комедия, Семейный</span>
+                            <span class="rating">⭐ 7.6/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Ворчливый Гринч решает украсть Рождество у жителей Ктограда. Комедия с Джимом Керри.
+                        </p>
+                        <div class="movie-features">
+                            <span class="feature-tag">🎭 Эксцентричная комедия</span>
+                            <span class="feature-tag">📚 По мотивам книги</span>
+                        </div>
+                        <a href="Обзоры.html#grinc" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Новогодний Киногид</h3>
+                    <p>Ваш проводник в мире праздничного кино</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Подборки</h3>
+                    <ul class="footer-links">
+                        <li><a href="Для всей семьи.html">Для всей семьи</a></li>
+                        <li><a href="Комедии.html">Комедии</a></li>
+                        <li><a href="Романтика.html">Романтика</a></li>
+                        <li><a href="Классика.html">Классика</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="О проекте.html">О проекте</a></li>
+                        <li><a href="Контакты.html">Обратная связь</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

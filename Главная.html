@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новогодний Киногид | Обзоры праздничных фильмов</title>
+    <meta name="description" content="Лучшие новогодние и рождественские фильмы с подробными обзорами и рейтингами. Подборки для создания праздничного настроения.">
+    <meta name="keywords" content="новогодние фильмы, рождественские фильмы, обзоры кино, рецензии, праздничное кино, топ фильмов на новый год">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    
+    <!-- Защита от копирования -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Защита от копирования
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            // Защита от правого клика
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            // Создание снежинок
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 5000);
+            }
+            
+            // Создание снежинок
+            setInterval(createSnowflake, 100);
+            
+            // Счетчик онлайн пользователей
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            // Имитация данных - в реальном проекте запрос к серверу
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+    </script>
+</head>
+<body class="protected-content">
+    <!-- Новогодние украшения -->
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🎬</div>
+                <div class="logo-text">
+                    <h1>Новогодний Киногид</h1>
+                    <p>Волшебство кино в праздничный сезон</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигация -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+                <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте </a></li>
+                <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main>
+
+        <!-- Популярные фильмы -->
+        <section class="container fade-in">
+            <div class="section-title">
+                <h2>Популярные новогодние фильмы</h2>
+            </div>
+            
+            <div class="movies-grid">
+                <!-- Фильм 1 -->
+                <article class="movie-card">
+                    <img src="один_дома.jpg" alt="Один дома" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Один дома</h3>
+                        <div class="movie-meta">
+                            <span>1990</span>
+                            <span class="rating">⭐ 8.3/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Классическая рождественская комедия о мальчике, случайно оставшемся один дома на праздники.
+                        </p>
+                        <a href="movie1.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 2 -->
+                <article class="movie-card">
+                    <img src="гринч.jpg" alt="Гринч" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Гринч</h3>
+                        <div class="movie-meta">
+                            <span>2000</span>
+                            <span class="rating">⭐ 7.6/10</span>
+                        </div>
+                        <p class="movie-description">
+                            История ворчливого Гринча, который решил украсть Рождество у жителей Ктограда.
+                        </p>
+                        <a href="movie2.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 3 -->
+                <article class="movie-card">
+                    <img src="красотка.jpg" alt="Красотка" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Красотка</h3>
+                        <div class="movie-meta">
+                            <span>1990</span>
+                            <span class="rating">⭐ 7.9/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Романтическая история, которая начинается в канун Нового года в Лос-Анджелесе.
+                        </p>
+                        <a href="movie3.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 4 -->
+                <article class="movie-card">
+                    <img src="полярный экспресс.jpg" alt="Полярный экспресс" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Полярный экспресс</h3>
+                        <div class="movie-meta">
+                            <span>2004</span>
+                            <span class="rating">⭐ 7.8/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Волшебное путешествие на поезде, следующем прямо в гости к Санта-Клаусу.
+                        </p>
+                        <a href="movie4.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Специальные подборки -->
+        <section class="container fade-in">
+            <div class="section-title">
+                <h2>Праздничные подборки</h2>
+            </div>
+            
+            <div class="movies-grid">
+                <!-- Подборка 1 -->
+                <article class="movie-card">
+                    <img src="семейный.jpg" alt="Семейные фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Для всей семьи</h3>
+                        <div class="movie-meta">
+                            <span>15 фильмов</span>
+                            <span class="rating">🎁</span>
+                        </div>
+                        <p class="movie-description">
+                            Фильмы, которые можно смотреть вместе с детьми и получать удовольствие все поколения.
+                        </p>
+                        <a href="Для всей семьи.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 2 -->
+                <article class="movie-card">
+                    <img src="новог_романтик.jpg" alt="Романтические фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Новогодняя романтика</h3>
+                        <div class="movie-meta">
+                            <span>12 фильмов</span>
+                            <span class="rating">❤️</span>
+                        </div>
+                        <p class="movie-description">
+                            Трогательные истории любви, которые разворачиваются в самый волшебный период года.
+                        </p>
+                        <a href="Романтика.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 3 -->
+                <article class="movie-card">
+                    <img src="классика.jpg" alt="Классические фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Вечная классика</h3>
+                        <div class="movie-meta">
+                            <span>10 фильмов</span>
+                            <span class="rating">⭐</span>
+                        </div>
+                        <p class="movie-description">
+                            Фильмы, которые уже стали неотъемлемой частью праздничной традиции миллионов людей.
+                        </p>
+                        <a href="Классика.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 4 -->
+                <article class="movie-card">
+                    <img src="комедия.jpg" alt="Комедийные фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Смех до слёз</h3>
+                        <div class="movie-meta">
+                            <span>18 фильмов</span>
+                            <span class="rating">😂</span>
+                        </div>
+                        <p class="movie-description">
+                            Самые смешные комедии, которые поднимут настроение даже в самый хмурый зимний день.
+                        </p>
+                        <a href="Комедии.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Аналитика и счетчики -->
+        <section class="container fade-in">
+            <div class="analytics">
+                <div class="section-title">
+                    <h2>Статистика сайта</h2>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-value" id="total-reviews">12</div>
+                        <div class="stat-title">Обзоров на сайте</div>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-value" id="total-movies">12</div>
+                        <div class="stat-title">Фильмов в базе</div>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-value" id="month-visitors">1K</div>
+                        <div class="stat-title">Посетителей в месяц</div>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-value" id="avg-rating">8.2</div>
+                        <div class="stat-title">Средний рейтинг</div>
+                    </div>
+                </div>
+
+                <!-- Место для счетчиков аналитики -->
+                <div style="margin-top: 40px;">
+                    <div class="counter-placeholder">
+                        <h4>Яндекс.Метрика</h4>
+                        <p>Здесь будет размещен код Яндекс.Метрики</p>
+                        <!-- Яндекс.Метрика код -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Новогодний Киногид</h3>
+                    <p>Ваш надежный гид в мире праздничного кино. Мы помогаем найти идеальные фильмы для создания новогоднего настроения.</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/id821097617"><i class="fab fa-vk"></i></a>
+                        <a href="https://yandex.ru/chat/p/ec8f7d08-8872-9491-7ea9-6a3b8f0eed22?utm_source=invite"><i class="fab fa-yandex"></i></a>
+                        <a href="https://youtube.com/@escobeat72?si=GKshnkahC8_8y4P8"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Разделы сайта</h3>
+                    <ul class="footer-links">
+                        <li><a href="Главная.html">Главная</a></li>
+                        <li><a href="Обзоры.html">Обзоры фильмов</a></li>
+                        <li><a href="Подборки.html">Тематические подборки</a></li>
+                        <li><a href="Рейтинги.html">Рейтинги и топы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="О проекте.html">О проекте</a></li>
+                        <li><a href="Контакты.html">Обратная связь</a></li>
+                        <li><a href="sitemap.html">Карта сайта</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> ahmet02hacker@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +7 (995) 092-50-35</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Тюмень, Россия</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены. Сайт создан в учебных целях.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипт для анимаций -->
+    <script>
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за всеми элементами с классом fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
