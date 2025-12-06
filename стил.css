@@ -249,17 +249,19 @@ nav {
     color: white;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center; /* Главное - это свойство */
+    gap: 6px;
     background: linear-gradient(135deg, var(--dark), #283593);
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 10px 75px; /* Уменьшаем горизонтальные отступы */
+    border-radius: 50px;
     font-size: 0.9rem;
     font-weight: bold;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s ease;
+    transition: all 0.8s ease;
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
+    white-space: nowrap; /* Запрещаем перенос текста */
 }
 
 .online-counter::before {
@@ -2030,4 +2032,5 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
 }
