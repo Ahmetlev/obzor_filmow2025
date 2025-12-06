@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Новогодний Киногид</title>
+    <meta name="description" content="Свяжитесь с редакцией Новогоднего Киногида. Мы всегда рады вашим отзывам, предложениям и вопросам о праздничных фильмах.">
+    <meta name="keywords" content="контакты, обратная связь, редакция, сотрудничество, реклама, вопросы">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Защита от копирования
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            // Снежинки
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            // Счетчик онлайн
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            event.target.reset();
+        }
+    </script>
+</head>
+<body class="protected-content">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🎬</div>
+                <div class="logo-text">
+                    <h1>Новогодний Киногид</h1>
+                    <p>Свяжитесь с нами</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+                <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
+                <li><a href="Контакты.html" class="active"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="section-title">
+                <h2>Свяжитесь с нами</h2>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>📞 Наши контакты</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Электронная почта</h4>
+                                <p>info@kinogid.ru</p>
+                                <p>reviews@kinogid.ru</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p>+7 (999) 123-45-67</p>
+                                <p>Пн-Пт: 10:00 - 19:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>Москва, ул. Кинематографическая, 15</p>
+                                <p>Бизнес-центр "Киноцентр"</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Время работы</h4>
+                                <p>Понедельник - Пятница: 9:00 - 18:00</p>
+                                <p>Суббота: 10:00 - 16:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-section">
+                        <h4>Мы в социальных сетях</h4>
+                        <div class="social-links large">
+                            <a href="https://vk.com/id821097617" class="social-link vk">
+                                <i class="fab fa-vk"></i>
+                                <span>ВКонтакте</span>
+                            </a>
+                            <a href="https://yandex.ru/chat/p/ec8f7d08-8872-9491-7ea9-6a3b8f0eed22?utm_source=invite" class="social-link yandex">
+                                <i class="fab fa-yandex"></i>
+                                <span>Yandex</span>
+                            </a>
+                            <a href="https://youtube.com/@escobeat72?si=GKshnkahC8_8y4P8" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>✉️ Обратная связь</h3>
+                    <form class="contact-form" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Электронная почта *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Тема сообщения</label>
+                            <select id="subject" name="subject">
+                                <option value="general">Общий вопрос</option>
+                                <option value="review">Предложить фильм для обзора</option>
+                                <option value="cooperation">Сотрудничество</option>
+                                <option value="advertising">Реклама</option>
+                                <option value="technical">Техническая проблема</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Сообщение *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Расскажите нам, что вас интересует..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-accent">
+                            <i class="fas fa-paper-plane"></i>
+                            Отправить сообщение
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>❓ Часто задаваемые вопросы</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>Как предложить фильм для обзора?</h4>
+                        <p>Вы можете отправить нам предложение через форму обратной связи, выбрав тему "Предложить фильм для обзора". Обязательно укажите название фильма и почему, по вашему мнению, он заслуживает внимания.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Могу ли я стать автором на вашем сайте?</h4>
+                        <p>Да, мы всегда рады новым авторам! Отправьте нам примеры ваших работ и резюме на почту info@kinogid.ru с темой "Вакансия автора".</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Как часто обновляется контент на сайте?</h4>
+                        <p>Мы публикуем новые материалы ежедневно. Обзоры выходят 3-4 раза в неделю, подборки обновляются еженедельно, а рейтинги - ежемесячно.</p>
+                    </div>
+                    <div class="faq-item">
+                       
