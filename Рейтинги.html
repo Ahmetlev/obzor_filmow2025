@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинги новогодних фильмов | Новогодний Киногид</title>
+    <meta name="description" content="Топы и рейтинги лучших новогодних фильмов по версии критиков и зрителей. Самые популярные праздничные кинокартины всех времен.">
+    <meta name="keywords" content="рейтинги фильмов, топ фильмов, лучшие новогодние фильмы, народный рейтинг, кинопоиск, IMDb">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="стил.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Защита от копирования
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            // Снежинки
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                document.querySelector('.snow-container').appendChild(snowflake);
+                
+                setTimeout(() => { snowflake.remove(); }, 5000);
+            }
+            setInterval(createSnowflake, 100);
+            
+            // Счетчик онлайн
+            updateOnlineCounter();
+            setInterval(updateOnlineCounter, 30000);
+        });
+        
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            document.getElementById('online-counter').textContent = onlineCount;
+        }
+
+        function openTab(tabName) {
+            // Скрыть все вкладки
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            // Убрать активный класс со всех кнопок
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Показать выбранную вкладку и активировать кнопку
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</head>
+<body class="protected-content">
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🎬</div>
+                <div class="logo-text">
+                    <h1>Новогодний Киногид</h1>
+                    <p>Рейтинги и топы фильмов</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+                <li><a href="Рейтинги.html"  class="active"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
+                <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                Онлайн: <span id="online-counter">25</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container fade-in">
+            <div class="section-title">
+                <h2>Рейтинги фильмов</h2>
+            </div>
+            
+            <div class="ratings-tabs">
+                <button class="tab-btn active" onclick="openTab('top-all')">Топ-5 всех времен</button>
+            </div>
+
+            <!-- Топ всех времен -->
+            <div id="top-all" class="tab-content active">
+                <div class="ranking-list">
+                    <!-- 1 место -->
+                    <div class="ranking-item top-1">
+                        <div class="rank-number">1</div>
+                        <img src="один_дома.jpg" alt="Один дома" class="rank-poster">
+                        <div class="rank-info">
+                            <h3>Один дома (1990)</h3>
+                            <div class="rank-meta">
+                                <span class="rating">⭐ 8.3/10</span>
+                                <span>Комедия, Семейный</span>
+                                <span>1ч 43м</span>
+                            </div>
+                        </div>
+                        <div class="rank-stats">
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>2.4M просмотров</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-heart"></i>
+                                <span>94% лайков</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 место -->
+                    <div class="ranking-item top-2">
+                        <div class="rank-number">2</div>
+                        <img src="красотка.jpg" alt="Красотка" class="rank-poster">
+                        <div class="rank-info">
+                            <h3>Красотка (1990)</h3>
+                            <div class="rank-meta">
+                                <span class="rating">⭐ 7.9/10</span>
+                                <span>Романтика, Драма</span>
+                                <span>1ч 59м</span>
+                            </div>
+                        </div>
+                        <div class="rank-stats">
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>1.8M просмотров</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-heart"></i>
+                                <span>89% лайков</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 место -->
+                    <div class="ranking-item top-3">
+                        <div class="rank-number">3</div>
+                        <img src="гринч.jpg" alt="Гринч" class="rank-poster">
+                        <div class="rank-info">
+                            <h3>Гринч (2000)</h3>
+                            <div class="rank-meta">
+                                <span class="rating">⭐ 7.6/10</span>
+                                <span>Комедия, Семейный</span>
+                                <span>1ч 44м</span>
+                            </div>
+                        </div>
+                        <div class="rank-stats">
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>1.5M просмотров</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-heart"></i>
+                                <span>87% лайков</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Остальные места с 4 по 10 -->
+                    <div class="ranking-item">
+                        <div class="rank-number">4</div>
+                        <img src="полярный экспресс.jpg" alt="Полярный экспресс" class="rank-poster">
+                        <div class="rank-info">
+                            <h3>Полярный экспресс (2004)</h3>
+                            <div class="rank-meta">
+                                <span class="rating">⭐ 7.8/10</span>
+                                <span>Анимация, Семейный</span>
+                                <span>1ч 40м</span>
+                            </div>
+                        </div>
+                        <div class="rank-stats">
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>1.2M просмотров</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-heart"></i>
+                                <span>85% лайков</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="rank-number">5</div>
+                        <img src="Эльф.jpg" alt="Эльф" class="rank-poster">
+                        <div class="rank-info">
+                            <h3>Эльф (2003)</h3>
+                            <div class="rank-meta">
+                                <span class="rating">⭐ 7.5/10</span>
+                                <span>Комедия, Семейный</span>
+                                <span>1ч 37м</span>
+                            </div>
+                        </div>
+                        <div class="rank-stats">
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>1.1M просмотров</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-heart"></i>
+                                <span>83% лайков</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Сравнение рейтингов -->
+            <div class="ratings-comparison">
+                <h3>Сравнение рейтингов</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>⭐ Наш рейтинг</h4>
+                        <p>Основан на оценках наших пользователей и экспертов</p>
+                        <div class="rating-score">8.2</div>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>🎬 КиноПоиск</h4>
+                        <p>Крупнейшая русскоязычная база фильмов</p>
+                        <div class="rating-score">7.9</div>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>🌎 IMDb</h4>
+                        <p>Международная интернет-база данных о фильмах</p>
+                        <div class="rating-score">8.0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Новогодний Киногид</h3>
+                    <p>Ваш надежный гид в мире праздничного кино.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Разделы сайта</h3>
+                    <ul class="footer-links">
+                        <li><a href="Главная.html"><i class="fas fa-home"></i> Главная</a></li>
+                        <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                        <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+                        <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                        <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
+                        <li><a href="Контакты.html" class="active"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">О проекте</a></li>
+                        <li><a href="contact.html">Обратная связь</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
