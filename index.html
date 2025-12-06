@@ -10,15 +10,6 @@
     <link rel="stylesheet" href="стил.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
     <!-- Защита от копирования -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -56,6 +47,9 @@
             // Счетчик онлайн пользователей
             updateOnlineCounter();
             setInterval(updateOnlineCounter, 30000);
+            
+            // Счетчик общего количества посетителей сайта
+            updateTotalVisitorsCounter();
         });
         
         function updateOnlineCounter() {
@@ -63,22 +57,16 @@
             const onlineCount = Math.floor(Math.random() * 50) + 15;
             document.getElementById('online-counter').textContent = onlineCount;
         }
+        
+        function updateTotalVisitorsCounter() {
+            // Имитация общего количества посетителей
+            // В реальном проекте это должно браться из базы данных или аналитики
+            const totalVisitors = Math.floor(Math.random() * 5000) + 2500;
+            document.getElementById('total-visitors-counter').textContent = totalVisitors.toLocaleString();
+        }
     </script>
 </head>
 <body class="protected-content">
-    <!-- Яндекс.Метрика -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105710818', 'ym');
-
-        ym(105710818, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/105710818" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
     <!-- Новогодние украшения -->
     <div class="christmas-lights"></div>
     <div class="header-decoration"></div>
@@ -101,7 +89,7 @@
     <nav>
         <div class="nav-container">
             <ul class="nav-links">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
                 <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
                 <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
                 <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
@@ -117,6 +105,7 @@
 
     <!-- Основной контент -->
     <main>
+
         <!-- Популярные фильмы -->
         <section class="container fade-in">
             <div class="section-title">
@@ -262,52 +251,6 @@
                 </article>
             </div>
         </section>
-
-        <!-- Аналитика и счетчики -->
-        <section class="container fade-in">
-            <div class="analytics">
-                <div class="section-title">
-                    <h2>Статистика сайта</h2>
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-value" id="total-reviews">12</div>
-                        <div class="stat-title">Обзоров на сайте</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-value" id="total-movies">12</div>
-                        <div class="stat-title">Фильмов в базе</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-value" id="month-visitors">1K</div>
-                        <div class="stat-title">Посетителей в месяц</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-value" id="avg-rating">8.2</div>
-                        <div class="stat-title">Средний рейтинг</div>
-                    </div>
-                </div>
-
-                <!-- Информация о счетчиках -->
-                <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                    <div class="counter-placeholder">
-                        <h4><i class="fas fa-chart-line"></i> Системы аналитики</h4>
-                        <p>На сайте установлены:</p>
-                        <ul style="list-style: none; padding-left: 10px;">
-                            <li><i class="fab fa-yandex"></i> Яндекс.Метрика</li>
-                            <li><i class="fab fa-google"></i> Google Analytics 4</li>
-                        </ul>
-                        <p style="font-size: 12px; color: #666; margin-top: 10px;">
-                            <i class="fas fa-info-circle"></i> Счетчики собирают анонимную статистику посещений
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Подвал -->
@@ -327,7 +270,7 @@
                 <div class="footer-section">
                     <h3>Разделы сайта</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="Главная.html">Главная</a></li>
                         <li><a href="Обзоры.html">Обзоры фильмов</a></li>
                         <li><a href="Подборки.html">Тематические подборки</a></li>
                         <li><a href="Рейтинги.html">Рейтинги и топы</a></li>
@@ -349,16 +292,13 @@
                         <li><i class="fas fa-envelope"></i> ahmet02hacker@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +7 (995) 092-50-35</li>
                         <li><i class="fas fa-map-marker-alt"></i> Тюмень, Россия</li>
+                        <li><i class="fas fa-user-friends"></i> Всего посетителей: <span id="total-visitors-counter">2,847</span></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2023 Новогодний Киногид. Все права защищены. Сайт создан в учебных целях.</p>
-                <p style="font-size: 12px; margin-top: 5px;">
-                    <i class="fas fa-shield-alt"></i> Защищено от копирования | 
-                    <i class="fas fa-chart-bar"></i> Используется Яндекс.Метрика и Google Analytics
-                </p>
             </div>
         </div>
     </footer>
