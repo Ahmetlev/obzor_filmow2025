@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="стил.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <!-- Защита от копирования -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -57,6 +66,19 @@
     </script>
 </head>
 <body class="protected-content">
+    <!-- Яндекс.Метрика -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105710818', 'ym');
+
+        ym(105710818, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105710818" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
     <!-- Новогодние украшения -->
     <div class="christmas-lights"></div>
     <div class="header-decoration"></div>
@@ -86,7 +108,6 @@
                 <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте </a></li>
                 <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
             </ul>
-            </ul>
             <div class="online-counter">
                 <i class="fas fa-users"></i>
                 Онлайн: <span id="online-counter">25</span>
@@ -96,7 +117,6 @@
 
     <!-- Основной контент -->
     <main>
-
         <!-- Популярные фильмы -->
         <section class="container fade-in">
             <div class="section-title">
@@ -272,12 +292,18 @@
                     </div>
                 </div>
 
-                <!-- Место для счетчиков аналитики -->
-                <div style="margin-top: 40px;">
+                <!-- Информация о счетчиках -->
+                <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
                     <div class="counter-placeholder">
-                        <h4>Яндекс.Метрика</h4>
-                        <p>Здесь будет размещен код Яндекс.Метрики</p>
-                        <!-- Яндекс.Метрика код -->
+                        <h4><i class="fas fa-chart-line"></i> Системы аналитики</h4>
+                        <p>На сайте установлены:</p>
+                        <ul style="list-style: none; padding-left: 10px;">
+                            <li><i class="fab fa-yandex"></i> Яндекс.Метрика</li>
+                            <li><i class="fab fa-google"></i> Google Analytics 4</li>
+                        </ul>
+                        <p style="font-size: 12px; color: #666; margin-top: 10px;">
+                            <i class="fas fa-info-circle"></i> Счетчики собирают анонимную статистику посещений
+                        </p>
                     </div>
                 </div>
             </div>
@@ -329,6 +355,10 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2023 Новогодний Киногид. Все права защищены. Сайт создан в учебных целях.</p>
+                <p style="font-size: 12px; margin-top: 5px;">
+                    <i class="fas fa-shield-alt"></i> Защищено от копирования | 
+                    <i class="fas fa-chart-bar"></i> Используется Яндекс.Метрика и Google Analytics
+                </p>
             </div>
         </div>
     </footer>
@@ -360,4 +390,3 @@
     </script>
 </body>
 </html>
-
