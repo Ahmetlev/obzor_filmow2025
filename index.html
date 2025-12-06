@@ -10,8 +10,44 @@
     <link rel="stylesheet" href="стил.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     
-    <!-- Защита от копирования -->
+    <!-- Защита от копирования и счетчики -->
     <script>
+        // Функция для форматирования чисел с разделителями
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Функция для обновления счетчика онлайн пользователей
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            const onlineElement = document.getElementById('online-counter');
+            if (onlineElement) {
+                onlineElement.textContent = onlineCount;
+            }
+        }
+        
+        // Функция для обновления счетчика общего количества посетителей
+        function updateTotalVisitorsCounter() {
+            // Проверяем, есть ли в localStorage сохраненное значение
+            let totalVisitors = localStorage.getItem('totalVisitors');
+            
+            if (!totalVisitors) {
+                // Если нет, устанавливаем начальное значение
+                totalVisitors = Math.floor(Math.random() * 5000) + 2500;
+                localStorage.setItem('totalVisitors', totalVisitors);
+            } else {
+                // Если есть, увеличиваем на случайное число для имитации новых посетителей
+                totalVisitors = parseInt(totalVisitors) + Math.floor(Math.random() * 10) + 1;
+                localStorage.setItem('totalVisitors', totalVisitors);
+            }
+            
+            const visitorsElement = document.getElementById('total-visitors-counter');
+            if (visitorsElement) {
+                visitorsElement.textContent = formatNumber(totalVisitors);
+            }
+        }
+        
+        // Основная функция при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             // Защита от копирования
             document.addEventListener('copy', function(e) {
@@ -34,7 +70,10 @@
                 snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
                 snowflake.style.opacity = Math.random();
                 snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-                document.querySelector('.snow-container').appendChild(snowflake);
+                const snowContainer = document.querySelector('.snow-container');
+                if (snowContainer) {
+                    snowContainer.appendChild(snowflake);
+                }
                 
                 setTimeout(() => {
                     snowflake.remove();
@@ -44,26 +83,13 @@
             // Создание снежинок
             setInterval(createSnowflake, 100);
             
-            // Счетчик онлайн пользователей
+            // Обновляем счетчики
             updateOnlineCounter();
-            setInterval(updateOnlineCounter, 30000);
-            
-            // Счетчик общего количества посетителей сайта
             updateTotalVisitorsCounter();
+            
+            // Обновляем онлайн счетчик каждые 30 секунд
+            setInterval(updateOnlineCounter, 30000);
         });
-        
-        function updateOnlineCounter() {
-            // Имитация данных - в реальном проекте запрос к серверу
-            const onlineCount = Math.floor(Math.random() * 50) + 15;
-            document.getElementById('online-counter').textContent = onlineCount;
-        }
-        
-        function updateTotalVisitorsCounter() {
-            // Имитация общего количества посетителей
-            // В реальном проекте это должно браться из базы данных или аналитики
-            const totalVisitors = Math.floor(Math.random() * 5000) + 2500;
-            document.getElementById('total-visitors-counter').textContent = totalVisitors.toLocaleString();
-        }
     </script>
 </head>
 <body class="protected-content">
@@ -292,7 +318,7 @@
                         <li><i class="fas fa-envelope"></i> ahmet02hacker@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +7 (995) 092-50-35</li>
                         <li><i class="fas fa-map-marker-alt"></i> Тюмень, Россия</li>
-                        <li><i class="fas fa-user-friends"></i> Всего посетителей: <span id="total-visitors-counter">2,847</span></li>
+                        <li><i class="fas fa-user-friends"></i> Всего посетителей: <span id="total-visitors-counter">0</span></li>
                     </ul>
                 </div>
             </div>
