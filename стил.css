@@ -2034,3 +2034,130 @@ footer {
     }
 
 }
+
+/* СТИЛИ ДЛЯ СЧЕТЧИКА ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ*/
+#online-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    min-width: 200px;
+    animation: slideInLeft 0.5s ease-out;
+    transition: all 0.3s ease;
+}
+
+#online-counter:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.online-dot {
+    width: 12px;
+    height: 12px;
+    background: #00E676;
+    border-radius: 50%;
+    margin-right: 12px;
+    animation: pulseGlow 1.5s infinite;
+    box-shadow: 0 0 10px #00E676;
+}
+
+.online-count {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 8px;
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Индикатор в статистике */
+.live-indicator {
+    font-size: 11px;
+    color: #4CAF50;
+    margin-top: 5px;
+    animation: pulse 2s infinite;
+}
+
+.live-indicator i {
+    margin-right: 5px;
+}
+
+/* Анимации */
+@keyframes pulseGlow {
+    0% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 5px #00E676;
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.1);
+        box-shadow: 0 0 15px #00E676;
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 5px #00E676;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #online-counter {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        min-width: auto;
+        justify-content: center;
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    .online-dot {
+        width: 10px;
+        height: 10px;
+        margin-right: 8px;
+    }
+    
+    .online-count {
+        font-size: 16px;
+    }
+}
+
+/* Для печати */
+@media print {
+    #online-counter {
+        display: none !important;
+    }
+}
