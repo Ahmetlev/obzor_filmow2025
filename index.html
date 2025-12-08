@@ -8,6 +8,8 @@
     <meta name="keywords" content="новогодние фильмы, рождественские фильмы, обзоры кино, рецензии, праздничное кино, топ фильмов на новый год">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="стил.css">
+    <!-- Подключаем стили для счетчика онлайн -->
+    <link rel="stylesheet" href="online-counter.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     
     <!-- Защита от копирования -->
@@ -232,7 +234,7 @@
             </div>
         </section>
 
-        <!-- СТАТИСТИКА САЙТА - ДОБАВИЛИ ОБРАТНО -->
+        <!-- СТАТИСТИКА САЙТА -->
         <section class="container fade-in">
             <div class="analytics">
                 <div class="section-title">
@@ -255,9 +257,13 @@
                         <div class="stat-title">Средний рейтинг</div>
                     </div>
                     
-                    <div class="stat-box">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-title">Доступ к сайту</div>
+                    <!-- Блок с онлайн пользователями -->
+                    <div class="stat-box" id="live-stat-box">
+                        <div class="stat-value" id="live-online">1</div>
+                        <div class="stat-title">Сейчас онлайн</div>
+                        <div class="live-indicator">
+                            <i class="fas fa-circle"></i> в реальном времени
+                        </div>
                     </div>
                 </div>
 
@@ -323,6 +329,182 @@
             </div>
         </div>
     </footer>
+
+    <!-- СЧЕТЧИК ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ -->
+    <div id="online-counter">
+        <div class="online-dot"></div>
+        <span>Сейчас онлайн: </span>
+        <span class="online-count" id="online-count">0</span>
+        <span> чел.</span>
+    </div>
+
+    <!-- JavaScript для счетчика онлайн -->
+    <script>
+    // ============================================
+    // СЧЕТЧИК ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ
+    // ============================================
+    
+    // Глобальные переменные
+    let onlineSessionId = null;
+    let onlineUpdateInterval = null;
+    let lastOnlineCount = 0;
+    
+    // 1. Генерация ID сессии
+    function getOnlineSessionId() {
+        if (!onlineSessionId) {
+            let storedId = localStorage.getItem('online_session_id');
+            if (storedId) {
+                onlineSessionId = storedId;
+            } else {
+                // Создаем новый уникальный ID
+                onlineSessionId = 'user_' + Date.now() + '_' + 
+                    Math.random().toString(36).substr(2, 9) + '_' + 
+                    Math.random().toString(36).substr(2, 5);
+                localStorage.setItem('online_session_id', onlineSessionId);
+            }
+        }
+        return onlineSessionId;
+    }
+    
+    // 2. Отправка запроса на сервер
+    function updateOnlineCounter() {
+        const sessionId = getOnlineSessionId();
+        const timestamp = Date.now();
+        
+        // Показываем анимацию загрузки
+        const counter = document.getElementById('online-count');
+        if (counter) {
+            counter.style.opacity = '0.7';
+        }
+        
+        // Отправляем запрос
+        fetch(`online.php?session_id=${encodeURIComponent(sessionId)}&t=${timestamp}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(countText => {
+                const count = parseInt(countText.trim());
+                
+                if (!isNaN(count)) {
+                    // Обновляем основной счетчик
+                    updateCounterDisplay('online-count', count);
+                    
+                    // Обновляем счетчик в статистике
+                    updateCounterDisplay('live-online', count);
+                    
+                    // Сохраняем последнее значение
+                    lastOnlineCount = count;
+                    
+                    // Логируем (для отладки)
+                    console.log(`[Онлайн] Обновлено: ${count} пользователей`);
+                } else {
+                    console.error('[Онлайн] Неверный ответ от сервера:', countText);
+                }
+            })
+            .catch(error => {
+                console.error('[Онлайн] Ошибка обновления:', error);
+                // В случае ошибки показываем последнее известное значение
+                if (lastOnlineCount > 0) {
+                    updateCounterDisplay('online-count', lastOnlineCount);
+                    updateCounterDisplay('live-online', lastOnlineCount);
+                }
+            })
+            .finally(() => {
+                // Восстанавливаем opacity
+                if (counter) {
+                    setTimeout(() => {
+                        counter.style.opacity = '1';
+                    }, 300);
+                }
+            });
+    }
+    
+    // 3. Обновление отображения счетчика
+    function updateCounterDisplay(elementId, newCount) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        const oldCount = parseInt(element.textContent) || 0;
+        
+        if (oldCount !== newCount) {
+            // Анимация изменения
+            element.style.transform = 'scale(1.3)';
+            element.style.color = '#FF5722';
+            
+            // Обновляем значение
+            element.textContent = newCount;
+            
+            // Возвращаем к нормальному состоянию
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+                element.style.color = '';
+            }, 300);
+        }
+    }
+    
+    // 4. Инициализация счетчика
+    function initOnlineCounter() {
+        console.log('[Онлайн] Инициализация счетчика...');
+        
+        // Первое обновление сразу
+        updateOnlineCounter();
+        
+        // Устанавливаем периодическое обновление (каждые 30 секунд)
+        onlineUpdateInterval = setInterval(updateOnlineCounter, 30000);
+        
+        // Обновляем при активности пользователя
+        const activityEvents = ['click', 'scroll', 'keydown', 'mousemove', 'touchstart'];
+        let activityTimer = null;
+        
+        activityEvents.forEach(event => {
+            document.addEventListener(event, () => {
+                // Сбрасываем таймер активности
+                clearTimeout(activityTimer);
+                
+                // Обновляем чаще при активности (раз в 15 секунд)
+                activityTimer = setTimeout(() => {
+                    updateOnlineCounter();
+                }, 15000);
+            }, { passive: true });
+        });
+        
+        // Обновляем при возвращении на вкладку
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                updateOnlineCounter();
+            }
+        });
+        
+        // Обновляем при загрузке страницы
+        window.addEventListener('load', updateOnlineCounter);
+        
+        console.log('[Онлайн] Счетчик инициализирован');
+    }
+    
+    // 5. Запуск при загрузке DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        // Запускаем инициализацию с небольшой задержкой
+        setTimeout(initOnlineCounter, 1000);
+    });
+    
+    // 6. Очистка при закрытии страницы
+    window.addEventListener('beforeunload', function() {
+        if (onlineUpdateInterval) {
+            clearInterval(onlineUpdateInterval);
+        }
+        
+        // Отправляем запрос об уходе (если поддерживается)
+        if (navigator.sendBeacon && onlineSessionId) {
+            const data = new FormData();
+            data.append('session_id', onlineSessionId);
+            data.append('action', 'leave');
+            navigator.sendBeacon('online.php', data);
+        }
+    });
+    </script>
 
     <!-- Скрипт для анимаций -->
     <script>
