@@ -2035,7 +2035,8 @@ footer {
 
 }
 
-/* СТИЛИ ДЛЯ СЧЕТЧИКА ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ*/
+/*СТИЛИ ДЛЯ СЧЕТЧИКА ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ*/
+
 #online-counter {
     position: fixed;
     bottom: 20px;
@@ -2132,7 +2133,7 @@ footer {
     }
 }
 
-/* Адаптивность */
+/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     #online-counter {
         bottom: 10px;
@@ -2142,6 +2143,8 @@ footer {
         justify-content: center;
         padding: 10px 15px;
         font-size: 13px;
+        margin: 0 auto;
+        max-width: calc(100% - 20px);
     }
     
     .online-dot {
@@ -2155,9 +2158,37 @@ footer {
     }
 }
 
+/* Для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #online-counter {
+        min-width: 180px;
+        font-size: 13px;
+    }
+}
+
 /* Для печати */
 @media print {
     #online-counter {
         display: none !important;
+    }
+}
+
+/* Темная тема (если поддерживается) */
+@media (prefers-color-scheme: dark) {
+    #online-counter {
+        background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* Высококонтрастный режим */
+@media (prefers-contrast: high) {
+    #online-counter {
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 0 2px #000000;
+    }
+    
+    .online-dot {
+        box-shadow: 0 0 0 2px #ffffff;
     }
 }
