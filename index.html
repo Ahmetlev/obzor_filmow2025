@@ -8,7 +8,7 @@
     <meta name="keywords" content="новогодние фильмы, рождественские фильмы, обзоры кино, рецензии, праздничное кино, топ фильмов на новый год">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="стил.css">
-    <!-- Подключаем стили для счетчика онлайн -->
+    <!-- Подключаем стили для счетчика -->
     <link rel="stylesheet" href="online-counter.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     
@@ -338,171 +338,155 @@
         <span> чел.</span>
     </div>
 
-    <!-- JavaScript для счетчика онлайн -->
+    <!-- JavaScript для счетчика онлайн (GitHub Pages версия) -->
     <script>
     // ============================================
-    // СЧЕТЧИК ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ
+    // СЧЕТЧИК ОНЛАЙН ДЛЯ GITHUB PAGES
+    // Реалистичный, но работает только в одном браузере
     // ============================================
     
-    // Глобальные переменные
-    let onlineSessionId = null;
-    let onlineUpdateInterval = null;
-    let lastOnlineCount = 0;
+    // Настройки
+    const ONLINE_CONFIG = {
+        updateInterval: 30000,     // Обновлять каждые 30 секунд
+        minUsers: 1,               // Минимальное количество
+        maxUsers: 35,              // Максимальное количество
+        baseUsers: 8,              // Базовое количество
+        timeBased: true            // Учитывать время суток
+    };
     
-    // 1. Генерация ID сессии
-    function getOnlineSessionId() {
-        if (!onlineSessionId) {
-            let storedId = localStorage.getItem('online_session_id');
-            if (storedId) {
-                onlineSessionId = storedId;
-            } else {
-                // Создаем новый уникальный ID
-                onlineSessionId = 'user_' + Date.now() + '_' + 
-                    Math.random().toString(36).substr(2, 9) + '_' + 
-                    Math.random().toString(36).substr(2, 5);
-                localStorage.setItem('online_session_id', onlineSessionId);
+    // Получение количества онлайн на основе времени
+    function getTimeBasedCount() {
+        const now = new Date();
+        const hour = now.getHours();
+        let baseCount = ONLINE_CONFIG.baseUsers;
+        
+        if (ONLINE_CONFIG.timeBased) {
+            // Больше людей днем и вечером
+            if (hour >= 9 && hour <= 12) { // Утро
+                baseCount = 12;
+            } else if (hour >= 13 && hour <= 18) { // День
+                baseCount = 25;
+            } else if (hour >= 19 && hour <= 23) { // Вечер
+                baseCount = 18;
+            } else { // Ночь
+                baseCount = 5;
             }
         }
-        return onlineSessionId;
+        
+        // Добавляем случайность ±30%
+        const variation = Math.floor(baseCount * 0.3);
+        const randomChange = Math.floor(Math.random() * (variation * 2 + 1)) - variation;
+        
+        // Ограничиваем min/max
+        let finalCount = baseCount + randomChange;
+        finalCount = Math.max(ONLINE_CONFIG.minUsers, 
+                            Math.min(ONLINE_CONFIG.maxUsers, finalCount));
+        
+        return finalCount;
     }
     
-    // 2. Отправка запроса на сервер
-    function updateOnlineCounter() {
-        const sessionId = getOnlineSessionId();
-        const timestamp = Date.now();
+    // Обновление счетчика на странице
+    function updateCounterDisplay() {
+        const count = getTimeBasedCount();
+        const now = new Date();
         
-        // Показываем анимацию загрузки
-        const counter = document.getElementById('online-count');
-        if (counter) {
-            counter.style.opacity = '0.7';
-        }
-        
-        // Отправляем запрос
-        fetch(`online.php?session_id=${encodeURIComponent(sessionId)}&t=${timestamp}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(countText => {
-                const count = parseInt(countText.trim());
-                
-                if (!isNaN(count)) {
-                    // Обновляем основной счетчик
-                    updateCounterDisplay('online-count', count);
-                    
-                    // Обновляем счетчик в статистике
-                    updateCounterDisplay('live-online', count);
-                    
-                    // Сохраняем последнее значение
-                    lastOnlineCount = count;
-                    
-                    // Логируем (для отладки)
-                    console.log(`[Онлайн] Обновлено: ${count} пользователей`);
-                } else {
-                    console.error('[Онлайн] Неверный ответ от сервера:', countText);
-                }
-            })
-            .catch(error => {
-                console.error('[Онлайн] Ошибка обновления:', error);
-                // В случае ошибки показываем последнее известное значение
-                if (lastOnlineCount > 0) {
-                    updateCounterDisplay('online-count', lastOnlineCount);
-                    updateCounterDisplay('live-online', lastOnlineCount);
-                }
-            })
-            .finally(() => {
-                // Восстанавливаем opacity
-                if (counter) {
-                    setTimeout(() => {
-                        counter.style.opacity = '1';
-                    }, 300);
-                }
-            });
-    }
-    
-    // 3. Обновление отображения счетчика
-    function updateCounterDisplay(elementId, newCount) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-        
-        const oldCount = parseInt(element.textContent) || 0;
-        
-        if (oldCount !== newCount) {
+        // Обновляем основной счетчик
+        const mainCounter = document.getElementById('online-count');
+        if (mainCounter) {
+            const oldCount = parseInt(mainCounter.textContent) || 0;
+            
             // Анимация изменения
-            element.style.transform = 'scale(1.3)';
-            element.style.color = '#FF5722';
-            
-            // Обновляем значение
-            element.textContent = newCount;
-            
-            // Возвращаем к нормальному состоянию
-            setTimeout(() => {
-                element.style.transform = 'scale(1)';
-                element.style.color = '';
-            }, 300);
+            if (oldCount !== count) {
+                mainCounter.style.transform = 'scale(1.3)';
+                mainCounter.style.color = '#FF5722';
+                
+                // Плавное изменение числа (если разница большая)
+                if (Math.abs(oldCount - count) > 5) {
+                    animateCounterChange(mainCounter, oldCount, count);
+                } else {
+                    mainCounter.textContent = count;
+                }
+                
+                // Возвращаем к нормальному виду
+                setTimeout(() => {
+                    mainCounter.style.transform = 'scale(1)';
+                    mainCounter.style.color = '';
+                }, 500);
+            }
         }
+        
+        // Обновляем счетчик в статистике
+        const statCounter = document.getElementById('live-online');
+        if (statCounter) {
+            statCounter.textContent = count;
+        }
+        
+        // Логируем в консоль (для отладки)
+        console.log(`[${now.getHours()}:${now.getMinutes()}] Онлайн: ${count} пользователей`);
     }
     
-    // 4. Инициализация счетчика
+    // Анимация плавного изменения числа
+    function animateCounterChange(element, from, to) {
+        const duration = 1000; // 1 секунда
+        const startTime = Date.now();
+        const difference = to - from;
+        
+        function updateNumber() {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Используем easeOutQuad для плавности
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.round(from + (difference * easeProgress));
+            
+            element.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            } else {
+                element.textContent = to;
+            }
+        }
+        
+        updateNumber();
+    }
+    
+    // Инициализация счетчика
     function initOnlineCounter() {
-        console.log('[Онлайн] Инициализация счетчика...');
+        console.log('🚀 Счетчик онлайн инициализирован (GitHub Pages версия)');
         
         // Первое обновление сразу
-        updateOnlineCounter();
+        updateCounterDisplay();
         
-        // Устанавливаем периодическое обновление (каждые 30 секунд)
-        onlineUpdateInterval = setInterval(updateOnlineCounter, 30000);
+        // Периодическое обновление
+        setInterval(updateCounterDisplay, ONLINE_CONFIG.updateInterval);
         
         // Обновляем при активности пользователя
-        const activityEvents = ['click', 'scroll', 'keydown', 'mousemove', 'touchstart'];
-        let activityTimer = null;
-        
+        const activityEvents = ['click', 'scroll', 'keydown', 'mousemove'];
         activityEvents.forEach(event => {
             document.addEventListener(event, () => {
-                // Сбрасываем таймер активности
-                clearTimeout(activityTimer);
-                
-                // Обновляем чаще при активности (раз в 15 секунд)
-                activityTimer = setTimeout(() => {
-                    updateOnlineCounter();
-                }, 15000);
+                // Увеличиваем шанс обновления при активности
+                if (Math.random() > 0.7) {
+                    setTimeout(updateCounterDisplay, 1000);
+                }
             }, { passive: true });
         });
         
         // Обновляем при возвращении на вкладку
         document.addEventListener('visibilitychange', () => {
             if (!document.hidden) {
-                updateOnlineCounter();
+                updateCounterDisplay();
             }
         });
         
-        // Обновляем при загрузке страницы
-        window.addEventListener('load', updateOnlineCounter);
-        
-        console.log('[Онлайн] Счетчик инициализирован');
+        // Обновляем каждый раз при загрузке страницы
+        window.addEventListener('load', updateCounterDisplay);
     }
     
-    // 5. Запуск при загрузке DOM
+    // Запуск при загрузке DOM
     document.addEventListener('DOMContentLoaded', function() {
-        // Запускаем инициализацию с небольшой задержкой
+        // Ждем полной загрузки страницы
         setTimeout(initOnlineCounter, 1000);
-    });
-    
-    // 6. Очистка при закрытии страницы
-    window.addEventListener('beforeunload', function() {
-        if (onlineUpdateInterval) {
-            clearInterval(onlineUpdateInterval);
-        }
-        
-        // Отправляем запрос об уходе (если поддерживается)
-        if (navigator.sendBeacon && onlineSessionId) {
-            const data = new FormData();
-            data.append('session_id', onlineSessionId);
-            data.append('action', 'leave');
-            navigator.sendBeacon('online.php', data);
-        }
     });
     </script>
 
