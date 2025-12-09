@@ -3,14 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новогодний Киногид | Главная</title>
-    <meta name="description" content="Лучшие новогодние и рождественские фильмы с подробными обзорами и рейтингами.">
+    <title>Новогодний Киногид | Обзоры праздничных фильмов</title>
+    <meta name="description" content="Лучшие новогодние и рождественские фильмы с подробными обзорами и рейтингами. Подборки для создания праздничного настроения.">
+    <meta name="keywords" content="новогодние фильмы, рождественские фильмы, обзоры кино, рецензии, праздничное кино, топ фильмов на новый год">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="стил.css">
+    <!-- Подключаем стили для счетчика -->
+    <link rel="stylesheet" href="online-counter.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    
+    <!-- Защита от копирования -->
+    <script>
+        // Основная функция при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Защита от копирования
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                alert('Копирование контента запрещено!');
+            });
+            
+            // Защита от правого клика
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Правый клик заблокирован!');
+            });
+            
+            // Создание снежинок
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snow');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                const snowContainer = document.querySelector('.snow-container');
+                if (snowContainer) {
+                    snowContainer.appendChild(snowflake);
+                }
+                
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 5000);
+            }
+            
+            // Создание снежинок
+            setInterval(createSnowflake, 100);
+        });
+    </script>
 </head>
-<body>
-    <!-- Шапка сайта -->
+<body class="protected-content">
+    <!-- Новогодние украшения -->
+    <div class="christmas-lights"></div>
+    <div class="header-decoration"></div>
+    <div class="snow-container"></div>
+
+     <!-- Шапка сайта -->
     <header>
         <div class="container">
             <div class="logo">
@@ -27,41 +75,210 @@
     <nav>
         <div class="nav-container">
             <ul class="nav-links">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
                 <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
                 <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
                 <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
-                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
+                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте </a></li>
                 <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
             </ul>
         </div>
-    </nav>
+    </nav> 
 
     <!-- Основной контент -->
     <main>
-        <div class="container">
-            <!-- Заголовок для страницы -->
+
+        <!-- Популярные фильмы -->
+        <section class="container fade-in">
             <div class="section-title">
-                <h2>Добро пожаловать на Новогодний Киногид!</h2>
+                <h2>Популярные новогодние фильмы</h2>
             </div>
-            
-            <!-- Содержимое конкретной страницы -->
-            <!-- СЮДА ВСТАВЛЯЙТЕ УНИКАЛЬНЫЙ КОНТЕНТ ДЛЯ КАЖДОЙ СТРАНИЦЫ -->
             
             <div class="movies-grid">
-                <!-- Пример контента для главной -->
+                <!-- Фильм 1 -->
                 <article class="movie-card">
-                    <img src="один_дома.jpg" alt="Один дома">
+                    <img src="один_дома.jpg" alt="Один дома" class="movie-poster">
                     <div class="movie-info">
-                        <h3>Один дома</h3>
-                        <p>Классическая новогодняя комедия</p>
-                        <a href="#" class="read-more">Подробнее</a>
+                        <h3 class="movie-title">Один дома</h3>
+                        <div class="movie-meta">
+                            <span>1990</span>
+                            <span class="rating">⭐ 8.3/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Классическая рождественская комедия о мальчике, случайно оставшемся один дома на праздники.
+                        </p>
+                        <a href="movie1.html" class="read-more">Читать обзор</a>
                     </div>
                 </article>
-                
-                <!-- Добавляйте другие элементы по аналогии -->
+
+                <!-- Фильм 2 -->
+                <article class="movie-card">
+                    <img src="гринч.jpg" alt="Гринч" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Гринч</h3>
+                        <div class="movie-meta">
+                            <span>2000</span>
+                            <span class="rating">⭐ 7.6/10</span>
+                        </div>
+                        <p class="movie-description">
+                            История ворчливого Гринча, который решил украсть Рождество у жителей Ктограда.
+                        </p>
+                        <a href="movie2.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 3 -->
+                <article class="movie-card">
+                    <img src="красотка.jpg" alt="Красотка" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Красотка</h3>
+                        <div class="movie-meta">
+                            <span>1990</span>
+                            <span class="rating">⭐ 7.9/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Романтическая история, которая начинается в канун Нового года в Лос-Анджелесе.
+                        </p>
+                        <a href="movie3.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
+
+                <!-- Фильм 4 -->
+                <article class="movie-card">
+                    <img src="полярный экспресс.jpg" alt="Полярный экспресс" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Полярный экспресс</h3>
+                        <div class="movie-meta">
+                            <span>2004</span>
+                            <span class="rating">⭐ 7.8/10</span>
+                        </div>
+                        <p class="movie-description">
+                            Волшебное путешествие на поезде, следующем прямо в гости к Санта-Клаусу.
+                        </p>
+                        <a href="movie4.html" class="read-more">Читать обзор</a>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <!-- Специальные подборки -->
+        <section class="container fade-in">
+            <div class="section-title">
+                <h2>Праздничные подборки</h2>
+            </div>
+            
+            <div class="movies-grid">
+                <!-- Подборка 1 -->
+                <article class="movie-card">
+                    <img src="семейный.jpg" alt="Семейные фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Для всей семьи</h3>
+                        <div class="movie-meta">
+                            <span>15 фильмов</span>
+                            <span class="rating">🎁</span>
+                        </div>
+                        <p class="movie-description">
+                            Фильмы, которые можно смотреть вместе с детьми и получать удовольствие все поколения.
+                        </p>
+                        <a href="Для всей семьи.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 2 -->
+                <article class="movie-card">
+                    <img src="новог_романтик.jpg" alt="Романтические фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Новогодняя романтика</h3>
+                        <div class="movie-meta">
+                            <span>12 фильмов</span>
+                            <span class="rating">❤️</span>
+                        </div>
+                        <p class="movie-description">
+                            Трогательные истории любви, которые разворачиваются в самый волшебный период года.
+                        </p>
+                        <a href="Романтика.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 3 -->
+                <article class="movie-card">
+                    <img src="классика.jpg" alt="Классические фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Вечная классика</h3>
+                        <div class="movie-meta">
+                            <span>10 фильмов</span>
+                            <span class="rating">⭐</span>
+                        </div>
+                        <p class="movie-description">
+                            Фильмы, которые уже стали неотъемлемой частью праздничной традиции миллионов людей.
+                        </p>
+                        <a href="Классика.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+
+                <!-- Подборка 4 -->
+                <article class="movie-card">
+                    <img src="комедия.jpg" alt="Комедийные фильмы" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Смех до слёз</h3>
+                        <div class="movie-meta">
+                            <span>18 фильмов</span>
+                            <span class="rating">😂</span>
+                        </div>
+                        <p class="movie-description">
+                            Самые смешные комедии, которые поднимут настроение даже в самый хмурый зимний день.
+                        </p>
+                        <a href="Комедии.html" class="read-more">Смотреть подборку</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- СТАТИСТИКА САЙТА -->
+        <section class="container fade-in">
+            <div class="analytics">
+                <div class="section-title">
+                    <h2>Статистика сайта</h2>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-value">12</div>
+                        <div class="stat-title">Обзоров на сайте</div>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-value">55</div>
+                        <div class="stat-title">Фильмов в базе</div>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-value">8.4</div>
+                        <div class="stat-title">Средний рейтинг</div>
+                    </div>
+                    
+                    <!-- Блок с онлайн пользователями -->
+                    <div class="stat-box" id="live-stat-box">
+                        <div class="stat-value" id="live-online">1</div>
+                        <div class="stat-title">Сейчас онлайн</div>
+                        <div class="live-indicator">
+                            <i class="fas fa-circle"></i> в реальном времени
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Информация о Яндекс.Метрике -->
+                <div style="margin-top: 40px; text-align: center;">
+                    <div class="counter-placeholder">
+                        <h4><i class="fas fa-chart-line"></i> Статистика посещений</h4>
+                        <p>Сбор данных осуществляется с помощью Яндекс.Метрики</p>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+                            <i class="fas fa-info-circle"></i> Подробную статистику можно просмотреть в личном кабинете Яндекс.Метрики
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Подвал -->
@@ -70,7 +287,31 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Новогодний Киногид</h3>
-                    <p>Ваш гид в мире праздничного кино.</p>
+                    <p>Ваш надежный гид в мире праздничного кино. Мы помогаем найти идеальные фильмы для создания новогоднего настроения.</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/id821097617"><i class="fab fa-vk"></i></a>
+                        <a href="https://yandex.ru/chat/p/ec8f7d08-8872-9491-7ea9-6a3b8f0eed22?utm_source=invite"><i class="fab fa-yandex"></i></a>
+                        <a href="https://youtube.com/@escobeat72?si=GKshnkahC8_8y4P8"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Разделы сайта</h3>
+                    <ul class="footer-links">
+                        <li><a href="Главная.html">Главная</a></li>
+                        <li><a href="Обзоры.html">Обзоры фильмов</a></li>
+                        <li><a href="Подборки.html">Тематические подборки</a></li>
+                        <li><a href="Рейтинги.html">Рейтинги и топы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="О проекте.html">О проекте</a></li>
+                        <li><a href="Контакты.html">Обратная связь</a></li>
+                        <li><a href="sitemap.html">Карта сайта</a></li>
+                    </ul>
                 </div>
                 
                 <div class="footer-section">
@@ -78,32 +319,215 @@
                     <ul class="footer-links">
                         <li><i class="fas fa-envelope"></i> ahmet02hacker@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +7 (995) 092-50-35</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Тюмень, Россия</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Новогодний Киногид. Все права защищены.</p>
+                <p>&copy; 2023 Новогодний Киногид. Все права защищены. Сайт создан в учебных целях.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Счетчик онлайн -->
+    <!-- СЧЕТЧИК ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ -->
     <div id="online-counter">
         <div class="online-dot"></div>
-        <span>Онлайн: </span>
-        <span class="online-count">1</span>
+        <span>Сейчас онлайн: </span>
+        <span class="online-count" id="online-count">0</span>
         <span> чел.</span>
     </div>
 
-    <!-- Простой JavaScript для счетчика -->
+    <!-- JavaScript для счетчика онлайн (GitHub Pages версия) -->
     <script>
-        // Простой счетчик
-        let count = 1;
-        setInterval(() => {
-            count = Math.max(1, Math.min(35, count + (Math.random() > 0.5 ? 1 : -1)));
-            document.querySelector('.online-count').textContent = count;
-        }, 30000);
+    // ============================================
+    // СЧЕТЧИК ОНЛАЙН ДЛЯ GITHUB PAGES
+    // Реалистичный, но работает только в одном браузере
+    // ============================================
+    
+    // Настройки
+    const ONLINE_CONFIG = {
+        updateInterval: 30000,     // Обновлять каждые 30 секунд
+        minUsers: 1,               // Минимальное количество
+        maxUsers: 35,              // Максимальное количество
+        baseUsers: 8,              // Базовое количество
+        timeBased: true            // Учитывать время суток
+    };
+    
+    // Получение количества онлайн на основе времени
+    function getTimeBasedCount() {
+        const now = new Date();
+        const hour = now.getHours();
+        let baseCount = ONLINE_CONFIG.baseUsers;
+        
+        if (ONLINE_CONFIG.timeBased) {
+            // Больше людей днем и вечером
+            if (hour >= 9 && hour <= 12) { // Утро
+                baseCount = 12;
+            } else if (hour >= 13 && hour <= 18) { // День
+                baseCount = 25;
+            } else if (hour >= 19 && hour <= 23) { // Вечер
+                baseCount = 18;
+            } else { // Ночь
+                baseCount = 5;
+            }
+        }
+        
+        // Добавляем случайность ±30%
+        const variation = Math.floor(baseCount * 0.3);
+        const randomChange = Math.floor(Math.random() * (variation * 2 + 1)) - variation;
+        
+        // Ограничиваем min/max
+        let finalCount = baseCount + randomChange;
+        finalCount = Math.max(ONLINE_CONFIG.minUsers, 
+                            Math.min(ONLINE_CONFIG.maxUsers, finalCount));
+        
+        return finalCount;
+    }
+    
+    // Обновление счетчика на странице
+    function updateCounterDisplay() {
+        const count = getTimeBasedCount();
+        const now = new Date();
+        
+        // Обновляем основной счетчик
+        const mainCounter = document.getElementById('online-count');
+        if (mainCounter) {
+            const oldCount = parseInt(mainCounter.textContent) || 0;
+            
+            // Анимация изменения
+            if (oldCount !== count) {
+                mainCounter.style.transform = 'scale(1.3)';
+                mainCounter.style.color = '#FF5722';
+                
+                // Плавное изменение числа (если разница большая)
+                if (Math.abs(oldCount - count) > 5) {
+                    animateCounterChange(mainCounter, oldCount, count);
+                } else {
+                    mainCounter.textContent = count;
+                }
+                
+                // Возвращаем к нормальному виду
+                setTimeout(() => {
+                    mainCounter.style.transform = 'scale(1)';
+                    mainCounter.style.color = '';
+                }, 500);
+            }
+        }
+        
+        // Обновляем счетчик в статистике
+        const statCounter = document.getElementById('live-online');
+        if (statCounter) {
+            statCounter.textContent = count;
+        }
+        
+        // Логируем в консоль (для отладки)
+        console.log(`[${now.getHours()}:${now.getMinutes()}] Онлайн: ${count} пользователей`);
+    }
+    
+    // Анимация плавного изменения числа
+    function animateCounterChange(element, from, to) {
+        const duration = 1000; // 1 секунда
+        const startTime = Date.now();
+        const difference = to - from;
+        
+        function updateNumber() {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Используем easeOutQuad для плавности
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.round(from + (difference * easeProgress));
+            
+            element.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            } else {
+                element.textContent = to;
+            }
+        }
+        
+        updateNumber();
+    }
+    
+    // Инициализация счетчика
+    function initOnlineCounter() {
+        console.log('🚀 Счетчик онлайн инициализирован (GitHub Pages версия)');
+        
+        // Первое обновление сразу
+        updateCounterDisplay();
+        
+        // Периодическое обновление
+        setInterval(updateCounterDisplay, ONLINE_CONFIG.updateInterval);
+        
+        // Обновляем при активности пользователя
+        const activityEvents = ['click', 'scroll', 'keydown', 'mousemove'];
+        activityEvents.forEach(event => {
+            document.addEventListener(event, () => {
+                // Увеличиваем шанс обновления при активности
+                if (Math.random() > 0.7) {
+                    setTimeout(updateCounterDisplay, 1000);
+                }
+            }, { passive: true });
+        });
+        
+        // Обновляем при возвращении на вкладку
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                updateCounterDisplay();
+            }
+        });
+        
+        // Обновляем каждый раз при загрузке страницы
+        window.addEventListener('load', updateCounterDisplay);
+    }
+    
+    // Запуск при загрузке DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ждем полной загрузки страницы
+        setTimeout(initOnlineCounter, 1000);
+    });
     </script>
+
+    <!-- Скрипт для анимаций -->
+    <script>
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за всеми элементами с классом fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Яндекс.Метрика counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105710818', 'ym');
+
+        ym(105710818, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105710818" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </body>
 </html>
