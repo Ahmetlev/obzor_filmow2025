@@ -2193,75 +2193,136 @@ footer {
     }
 }
 
-/* МОБИЛЬНАЯ АДАПТИВНОСТЬ - минимально */
-@media (max-width: 768px) {
-    /* Шапка на мобильных */
-    header {
-        padding: 70px 0 20px;
-    }
-    
-    .logo {
-        flex-direction: column;
-        text-align: center;
-    }
-    
+/* ДОПОЛНИТЕЛЬНЫЕ ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ */
+
+/* Исправляем адаптивность шапки на очень маленьких экранах */
+@media (max-width: 480px) {
     .logo-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
+        line-height: 1.2;
     }
     
     .logo-text p {
-        font-size: 0.9rem;
+        font-size: 0.9rem !important;
     }
     
-    /* Навигация на мобильных */
+    .logo-icon {
+        font-size: 2rem !important;
+    }
+    
+    /* Исправляем навигацию */
     .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-    }
-    
-    .nav-links li {
-        margin: 0 5px;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important;
     }
     
     .nav-links a {
-        padding: 8px 12px;
-        font-size: 0.9rem;
+        font-size: 0.8rem !important;
+        padding: 6px 10px !important;
+        flex-direction: column !important;
     }
     
-    /* Фильмы на мобильных */
-    .movies-grid {
-        grid-template-columns: 1fr !important;
+    .nav-links i {
+        font-size: 0.9rem !important;
+        margin-bottom: 2px !important;
     }
     
+    /* Исправляем карточки фильмов */
     .movie-poster {
-        height: 250px;
+        height: 200px !important;
     }
     
-    /* Статистика на мобильных */
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+    .movie-info {
+        padding: 15px !important;
     }
     
+    .movie-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .movie-description {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Исправляем статистику */
     .stat-value {
-        font-size: 1.8rem;
+        font-size: 1.5rem !important;
+    }
+    
+    .stat-title {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Исправляем счетчик онлайн */
+    #online-counter {
+        position: fixed !important;
+        bottom: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 90% !important;
+        max-width: 300px !important;
+        min-width: auto !important;
+        justify-content: center !important;
+        padding: 8px 15px !important;
+        font-size: 12px !important;
+        z-index: 9999 !important;
+    }
+    
+    .online-dot {
+        width: 8px !important;
+        height: 8px !important;
+        margin-right: 6px !important;
+    }
+    
+    .online-count {
+        font-size: 14px !important;
     }
 }
 
-@media (max-width: 480px) {
-    /* Маленькие экраны */
+/* Исправление для планшетов */
+@media (min-width: 481px) and (max-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .movie-poster {
+        height: 250px !important;
+    }
+    
+    .section-title h2 {
+        font-size: 1.6rem !important;
+    }
+    
     .nav-links a {
-        padding: 6px 8px;
-        font-size: 0.8rem;
+        font-size: 0.9rem !important;
+        padding: 8px 12px !important;
+    }
+}
+
+/* Улучшаем отображение на всех экранах */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     .movie-card {
-        margin: 0 5px;
+        margin: 0 !important;
     }
     
-    .stats {
-        grid-template-columns: 1fr;
+    /* Убираем горизонтальный скролл */
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    /* Улучшаем читаемость текста */
+    p, li, span {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
     }
 }
