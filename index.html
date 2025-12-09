@@ -2,19 +2,51 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- Добавьте этот мета-тег сразу после charset -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новогодний Киногид | Обзоры праздничных фильмов</title>
     <meta name="description" content="Лучшие новогодние и рождественские фильмы с подробными обзорами и рейтингами. Подборки для создания праздничного настроения.">
     <meta name="keywords" content="новогодние фильмы, рождественские фильмы, обзоры кино, рецензии, праздничное кино, топ фильмов на новый год">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="стил.css">
-    <!-- Подключаем стили для счетчика -->
-    <link rel="stylesheet" href="online-counter.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     
-    <!-- Защита от копирования -->
+    <!-- Защита от копирования и счетчики -->
     <script>
+        // Функция для форматирования чисел с разделителями
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Функция для обновления счетчика онлайн пользователей
+        function updateOnlineCounter() {
+            const onlineCount = Math.floor(Math.random() * 50) + 15;
+            const onlineElement = document.getElementById('online-counter');
+            if (onlineElement) {
+                onlineElement.textContent = onlineCount;
+            }
+        }
+        
+        // Функция для обновления счетчика общего количества посетителей
+        function updateTotalVisitorsCounter() {
+            // Проверяем, есть ли в localStorage сохраненное значение
+            let totalVisitors = localStorage.getItem('totalVisitors');
+            
+            if (!totalVisitors) {
+                // Если нет, устанавливаем начальное значение
+                totalVisitors = Math.floor(Math.random() * 5000) + 2500;
+                localStorage.setItem('totalVisitors', totalVisitors);
+            } else {
+                // Если есть, увеличиваем на случайное число для имитации новых посетителей
+                totalVisitors = parseInt(totalVisitors) + Math.floor(Math.random() * 10) + 1;
+                localStorage.setItem('totalVisitors', totalVisitors);
+            }
+            
+            const visitorsElement = document.getElementById('total-visitors-counter');
+            if (visitorsElement) {
+                visitorsElement.textContent = formatNumber(totalVisitors);
+            }
+        }
+        
         // Основная функция при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             // Защита от копирования
@@ -50,6 +82,13 @@
             
             // Создание снежинок
             setInterval(createSnowflake, 100);
+            
+            // Обновляем счетчики
+            updateOnlineCounter();
+            updateTotalVisitorsCounter();
+            
+            // Обновляем онлайн счетчик каждые 30 секунд
+            setInterval(updateOnlineCounter, 30000);
         });
     </script>
 </head>
@@ -59,7 +98,7 @@
     <div class="header-decoration"></div>
     <div class="snow-container"></div>
 
-     <!-- Шапка сайта -->
+    <!-- Шапка сайта -->
     <header>
         <div class="container">
             <div class="logo">
@@ -74,37 +113,21 @@
 
     <!-- Навигация -->
     <nav>
-    <div class="nav-container">
-        <!-- Кнопка гамбургер для мобильных -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Меню">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <!-- Оверлей для закрытия меню -->
-        <div class="menu-overlay" id="menuOverlay"></div>
-        
-        <ul class="nav-links" id="navLinks">
-            <!-- Кнопка закрытия в мобильном меню -->
-            <button class="menu-close" id="menuClose" aria-label="Закрыть меню">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <!-- Заголовок мобильного меню -->
-            <div class="mobile-menu-title">
-                <i class="fas fa-film"></i>
-                <span>Меню сайта</span>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+                <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+                <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте </a></li>
+                <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+            <div class="online-counter">
+                <i class="fas fa-users"></i>
+                <span class="online-text">Онлайн:</span> 
+                <span class="online-number" id="online-counter">25</span>
             </div>
-            
-            <!-- Пункты меню (оставить ваши ссылки) -->
-            <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
-            <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
-            <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
-            <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
-            <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
-            <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav> 
 
     <!-- Основной контент -->
     <main>
@@ -254,52 +277,6 @@
                 </article>
             </div>
         </section>
-
-        <!-- СТАТИСТИКА САЙТА -->
-        <section class="container fade-in">
-            <div class="analytics">
-                <div class="section-title">
-                    <h2>Статистика сайта</h2>
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-value">12</div>
-                        <div class="stat-title">Обзоров на сайте</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-value">55</div>
-                        <div class="stat-title">Фильмов в базе</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-value">8.4</div>
-                        <div class="stat-title">Средний рейтинг</div>
-                    </div>
-                    
-                    <!-- Блок с онлайн пользователями -->
-                    <div class="stat-box" id="live-stat-box">
-                        <div class="stat-value" id="live-online">1</div>
-                        <div class="stat-title">Сейчас онлайн</div>
-                        <div class="live-indicator">
-                            <i class="fas fa-circle"></i> в реальном времени
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Информация о Яндекс.Метрике -->
-                <div style="margin-top: 40px; text-align: center;">
-                    <div class="counter-placeholder">
-                        <h4><i class="fas fa-chart-line"></i> Статистика посещений</h4>
-                        <p>Сбор данных осуществляется с помощью Яндекс.Метрики</p>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
-                            <i class="fas fa-info-circle"></i> Подробную статистику можно просмотреть в личном кабинете Яндекс.Метрики
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Подвал -->
@@ -341,6 +318,7 @@
                         <li><i class="fas fa-envelope"></i> ahmet02hacker@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +7 (995) 092-50-35</li>
                         <li><i class="fas fa-map-marker-alt"></i> Тюмень, Россия</li>
+                        <li><i class="fas fa-user-friends"></i> Всего посетителей: <span id="total-visitors-counter">0</span></li>
                     </ul>
                 </div>
             </div>
@@ -350,80 +328,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- СЧЕТЧИК ОНЛАЙН ПОЛЬЗОВАТЕЛЕЙ -->
-    <div id="online-counter">
-        <div class="online-dot"></div>
-        <span>Сейчас онлайн: </span>
-        <span class="online-count" id="online-count">0</span>
-        <span> чел.</span>
-    </div>
-
-    <!-- JavaScript для счетчика онлайн (GitHub Pages версия) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    // Счетчик онлайн
-            let onlineCount = 1;
-            const counterElement = document.getElementById('online-count');
-            const liveCounter = document.getElementById('live-online');
-            function updateCounter() {
-                // Имитация реальных пользователей
-                const hour = new Date().getHours();
-                let base = 1;
-        
-                if (hour >= 9 && hour <= 12) base = 8;
-                else if (hour >= 13 && hour <= 18) base = 15;
-                else if (hour >= 19 && hour <= 23) base = 10;
-                else base = 3;
-        // Добавляем случайность
-                const change = Math.floor(Math.random() * 5) - 2;
-                onlineCount = Math.max(1, Math.min(30, base + change));
-        
-        // Обновляем оба счетчика
-                if (counterElement) {
-                    counterElement.textContent = onlineCount;
-                    counterElement.style.transform = 'scale(1.2)';
-                    setTimeout(() => {
-                        counterElement.style.transform = 'scale(1)';
-                    }, 300);
-                }
-                if (liveCounter) {
-                    liveCounter.textContent = onlineCount;
-                }
-                console.log('Онлайн пользователей:', onlineCount);
-            }
-    
-    // Первое обновление
-            updateCounter();
-    
-    // Обновляем каждые 30 секунд
-            setInterval(updateCounter, 30000);
-    
-    // Обновляем при активности на мобильных
-            ['touchstart', 'click', 'scroll'].forEach(event => {
-                document.addEventListener(event, () => {
-                    if (Math.random() > 0.8) {
-                        setTimeout(updateCounter, 1000);
-                    }
-                });
-            });
-    
-    // Адаптивные изображени
-            function checkImageSizes() {
-                const images = document.querySelectorAll('img');
-                images.forEach(img => {
-                    if (img.naturalWidth > window.innerWidth) {
-                        img.style.maxWidth = '100%';
-                        img.style.height = 'auto';
-                    }
-                });
-            }
-    
-    // Проверяем изображения при загрузке и изменении размера
-            window.addEventListener('load', checkImageSizes);
-            window.addEventListener('resize', checkImageSizes);
-        });
-    </script>
 
     <!-- Скрипт для анимаций -->
     <script>
@@ -450,99 +354,6 @@
             observer.observe(el);
         });
     </script>
-
-    <!-- Яндекс.Метрика counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105710818', 'ym');
-
-        ym(105710818, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/105710818" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-     <!-- JavaScript для адаптивного меню -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const menuOverlay = document.getElementById('menuOverlay');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (menuToggle && navLinks) {
-        // Открытие меню
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.add('active');
-            menuOverlay.classList.add('active');
-            menuToggle.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Блокируем скролл
-        });
-        
-        // Закрытие меню через кнопку
-        menuClose.addEventListener('click', function() {
-            closeMenu();
-        });
-        
-        // Закрытие меню через оверлей
-        menuOverlay.addEventListener('click', function() {
-            closeMenu();
-        });
-        
-        // Закрытие меню при клике на ссылку
-        const menuItems = navLinks.querySelectorAll('a');
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    closeMenu();
-                }
-            });
-        });
-        
-        // Закрытие меню при изменении размера окна
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMenu();
-            }
-        });
-        
-        // Функция закрытия меню
-        function closeMenu() {
-            navLinks.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = ''; // Разблокируем скролл
-        }
-        
-        // Открытие меню свайпом (для мобильных)
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        document.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        document.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            const swipeDistance = touchEndX - touchStartX;
-            
-            // Свайп справа налево открывает меню
-            if (swipeDistance < -50 && window.innerWidth <= 768) {
-                navLinks.classList.add('active');
-                menuOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-            
-            // Свайп слева направо закрывает меню
-            if (swipeDistance > 50 && window.innerWidth <= 768) {
-                closeMenu();
-            }
-        });
-    }
-});
-</script>
 </body>
 </html>
+
