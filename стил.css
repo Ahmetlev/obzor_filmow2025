@@ -2133,8 +2133,9 @@ footer {
     }
 }
 
-/* Адаптивность для мобильных устройств */
+/* Адаптивность для мобильных устройств (до 768px) */
 @media (max-width: 768px) {
+    /* Online Counter */
     #online-counter {
         bottom: 10px;
         left: 10px;
@@ -2153,49 +2154,7 @@ footer {
         margin-right: 8px;
     }
     
-    .online-count {
-        font-size: 16px;
-    }
-}
-
-/* Для планшетов */
-@media (min-width: 769px) and (max-width: 1024px) {
-    #online-counter {
-        min-width: 180px;
-        font-size: 13px;
-    }
-}
-
-/* Для печати */
-@media print {
-    #online-counter {
-        display: none !important;
-    }
-}
-
-/* Темная тема (если поддерживается) */
-@media (prefers-color-scheme: dark) {
-    #online-counter {
-        background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
-        border: 2px solid rgba(255, 255, 255, 0.15);
-    }
-}
-
-/* Высококонтрастный режим */
-@media (prefers-contrast: high) {
-    #online-counter {
-        border: 2px solid #ffffff;
-        box-shadow: 0 0 0 2px #000000;
-    }
-    
-    .online-dot {
-        box-shadow: 0 0 0 2px #ffffff;
-    }
-}
-
-/* МОБИЛЬНАЯ АДАПТИВНОСТЬ - минимально */
-@media (max-width: 768px) {
-    /* Шапка на мобильных */
+    /* Header */
     header {
         padding: 70px 0 20px;
     }
@@ -2213,7 +2172,7 @@ footer {
         font-size: 0.9rem;
     }
     
-    /* Навигация на мобильных */
+    /* Navigation */
     .nav-links {
         display: flex;
         flex-wrap: wrap;
@@ -2221,16 +2180,12 @@ footer {
         justify-content: center;
     }
     
-    .nav-links li {
-        margin: 0 5px;
-    }
-    
     .nav-links a {
         padding: 8px 12px;
         font-size: 0.9rem;
     }
     
-    /* Фильмы на мобильных */
+    /* Movies */
     .movies-grid {
         grid-template-columns: 1fr !important;
     }
@@ -2239,7 +2194,7 @@ footer {
         height: 250px;
     }
     
-    /* Статистика на мобильных */
+    /* Stats */
     .stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -2248,10 +2203,19 @@ footer {
     .stat-value {
         font-size: 1.8rem;
     }
+
+    /* Page Button for mobile */
+    .pagination-container {
+        gap: 5px; /* Меньше расстояние между кнопками */
+    }
+    .page-button {
+        padding: 8px 12px; /* Меньше размер на мобильных */
+        font-size: 14px;
+    }
 }
 
+/* Адаптивность для очень маленьких экранов (до 480px) */
 @media (max-width: 480px) {
-    /* Маленькие экраны */
     .nav-links a {
         padding: 6px 8px;
         font-size: 0.8rem;
@@ -2264,4 +2228,55 @@ footer {
     .stats {
         grid-template-columns: 1fr;
     }
+
+    .pagination-container {
+        flex-wrap: wrap; /* Кнопки могут переноситься на новую строку */
+    }
 }
+
+/* Для планшетов (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #online-counter {
+        min-width: 180px;
+        font-size: 13px;
+    }
+}
+
+/* Для печати */
+@media print {
+    #online-counter {
+        display: none !important;
+    }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    #online-counter {
+        background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    .page-button {
+        /* Темный фон для кнопки в темной теме */
+        background: linear-gradient(135deg, #ef5350 0%, #d32f2f 100%);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Высококонтрастный режим */
+@media (prefers-contrast: high) {
+    #online-counter {
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 0 2px #000000;
+    }
+    
+    .online-dot {
+        box-shadow: 0 0 0 2px #ffffff;
+    }
+
+    .page-button {
+        border: 2px solid #ffffff; /* Белая обводка в контрастном режиме */
+        background: #b71c1c; /* Сплошной контрастный фон */
+        color: #ffffff;
+    }
+}
+
