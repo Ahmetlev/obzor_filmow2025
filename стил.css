@@ -2192,3 +2192,76 @@ footer {
         box-shadow: 0 0 0 2px #ffffff;
     }
 }
+
+/* МОБИЛЬНАЯ АДАПТИВНОСТЬ - минимально */
+@media (max-width: 768px) {
+    /* Шапка на мобильных */
+    header {
+        padding: 70px 0 20px;
+    }
+    
+    .logo {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.9rem;
+    }
+    
+    /* Навигация на мобильных */
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .nav-links li {
+        margin: 0 5px;
+    }
+    
+    .nav-links a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Фильмы на мобильных */
+    .movies-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .movie-poster {
+        height: 250px;
+    }
+    
+    /* Статистика на мобильных */
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .stat-value {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Маленькие экраны */
+    .nav-links a {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .movie-card {
+        margin: 0 5px;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
