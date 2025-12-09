@@ -74,17 +74,37 @@
 
     <!-- Навигация -->
     <nav>
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
-                <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
-                <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
-                <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
-                <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте </a></li>
-                <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
-            </ul>
-        </div>
-    </nav> 
+    <div class="nav-container">
+        <!-- Кнопка гамбургер для мобильных -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Оверлей для закрытия меню -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        
+        <ul class="nav-links" id="navLinks">
+            <!-- Кнопка закрытия в мобильном меню -->
+            <button class="menu-close" id="menuClose" aria-label="Закрыть меню">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- Заголовок мобильного меню -->
+            <div class="mobile-menu-title">
+                <i class="fas fa-film"></i>
+                <span>Меню сайта</span>
+            </div>
+            
+            <!-- Пункты меню (оставить ваши ссылки) -->
+            <li><a href="Главная.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+            <li><a href="Обзоры.html"><i class="fas fa-film"></i> Обзоры</a></li>
+            <li><a href="Подборки.html"><i class="fas fa-star"></i> Подборки</a></li>
+            <li><a href="Рейтинги.html"><i class="fas fa-chart-bar"></i> Рейтинги</a></li>
+            <li><a href="О проекте.html"><i class="fas fa-info-circle"></i> О проекте</a></li>
+            <li><a href="Контакты.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+        </ul>
+    </div>
+</nav>
 
     <!-- Основной контент -->
     <main>
@@ -444,6 +464,85 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/105710818" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+     <!-- JavaScript для адаптивного меню -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+        // Открытие меню
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.add('active');
+            menuOverlay.classList.add('active');
+            menuToggle.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Блокируем скролл
+        });
+        
+        // Закрытие меню через кнопку
+        menuClose.addEventListener('click', function() {
+            closeMenu();
+        });
+        
+        // Закрытие меню через оверлей
+        menuOverlay.addEventListener('click', function() {
+            closeMenu();
+        });
+        
+        // Закрытие меню при клике на ссылку
+        const menuItems = navLinks.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+        
+        // Закрытие меню при изменении размера окна
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+        
+        // Функция закрытия меню
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = ''; // Разблокируем скролл
+        }
+        
+        // Открытие меню свайпом (для мобильных)
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            const swipeDistance = touchEndX - touchStartX;
+            
+            // Свайп справа налево открывает меню
+            if (swipeDistance < -50 && window.innerWidth <= 768) {
+                navLinks.classList.add('active');
+                menuOverlay.classList.add('active');
+                menuToggle.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Свайп слева направо закрывает меню
+            if (swipeDistance > 50 && window.innerWidth <= 768) {
+                closeMenu();
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
-
